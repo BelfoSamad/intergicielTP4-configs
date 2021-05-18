@@ -4,13 +4,11 @@ spring:
       routes:
         - id: route1
           predicates:
-            - Path=/service-formation/**
-
+            - Path=/s-formation/**
           filters:
-            - RewritePath=/service-formation/(?<s>.*), /${s}
+            - RewritePath=/s-formation/(?<s>.*), /${s}
             - name: CircuitBreaker
               args:
-                name: FallBabk-formation
+                name: fallbck-masformation
                 fallbackuri: forward:/defaultFormations
-
           uri: lb://ms-formation
